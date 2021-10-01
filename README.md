@@ -1,3 +1,17 @@
+# Searching For Repositories And Organizations Application
+
+Build a React Typescript Search Application to consume Github Web API with Hooks, Redux, Axios, display data of users with HTML AND CSS
+
+ .This app was developed with react using typescript, html, sass/scs, axios to make api request and redux for the state management.
+
+ .The navabar comprises name of the app and the Search bar to get 5 repositories from a user/organization respositiories
+
+ .The Users/organizations can be retrieved making an api call with a 3rd party package(module) axios.
+
+ .Each user/organization can be display by mapping through the api to access the json object from the github api in the UI right below the list title.
+
+ .The demo's link for the Application can be view on this url endpoint https://jydetone1.github.io/search_repos/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
