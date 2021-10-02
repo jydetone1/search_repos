@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react'
+import React, {useState, useEffect, useRef, useMemo} from 'react'
 import { useActions } from '../hooks/useActions';
 import{useSelector} from "../hooks/useTypedSelector"
-import {debounce} from "lodash"
+import debounce from "lodash.debounce"
 import style from "./Header.module.scss"
 
 
@@ -10,7 +10,7 @@ const Header: React.FC = ()=> {
     const [term, setTerm] = useState("")
     const {searchRepos} = useActions()
     const {loading, error, data} =useSelector((state ) =>state.repos)
-
+    console.log(data)
     useEffect(()=>{
       if(!inputRef.current){
         return;
@@ -18,23 +18,34 @@ const Header: React.FC = ()=> {
       inputRef.current.focus()
     },[])
 
- 
+
     const submitHandler = (e:React.FormEvent<HTMLFormElement>)=>{
      e.preventDefault()
      searchRepos(term)
      setTerm("")
     }
 
+    const handleChange = (event:React.ChangeEvent<HTMLInputElement>) =>  {
+      setTerm(event.target.value)
+    }
+
+    //const debouncedChange = debounce(handleChange, 500)
+
      return (
        <>
         <div> 
           <nav className={style.header__search}>
             <h3>Github search</h3>
-            <form onSubmit={submitHandler}>
-                < input type="text" ref={inputRef} 
+            <form onSubmit={submitHandler }>
+                < input 
+                type="text" 
+                ref={inputRef} 
                 value={term} 
                 placeholder="search..."
-                onChange={(e) =>setTerm(e.target.value)}
+                onChange={handleChange}
+
+                //debounce after 500ms
+                // onChange={debouncedChange}
                 />
                 <button type="submit" className={style.search__btn}>search</button>
             </form>
