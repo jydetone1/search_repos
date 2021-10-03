@@ -10,7 +10,7 @@ const Header: React.FC = ()=> {
     const [term, setTerm] = useState("")
     const {searchRepos} = useActions()
     const {loading, error, data} =useSelector((state ) =>state.repos)
-    console.log(data)
+
     useEffect(()=>{
       if(!inputRef.current){
         return;

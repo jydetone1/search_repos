@@ -11,7 +11,7 @@ Build a React Typescript Search Application to consume Github Web API with Hooks
  .Each user/organization can be display by mapping through the api to access the json object from the github api in the UI right below the list title.
  
  .Debounce added to the input field to display repositories after 
- 500ms. uncomment the loading of the debounce module, debounce function and the onChange attribute to see the logic.
+ 500ms. Comment the value attribute, uncomment the loading of the debounce module, debounce function, and the onChange attribute to see the logic.
 
  .The demo's link for the Application can be view on this url endpoint https://jydetone1.github.io/search_repos/
 
